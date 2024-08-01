@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the original temperature unit" );
+        System.out.print("Enter the original temperature unit: " );
         String temperature = scanner.nextLine();
-        System.out.println("What is the temperature you want converted? (Enter a number)");
+        System.out.print("What is the temperature you want converted? (Enter a number): ");
         double tempDouble= scanner.nextDouble();
         scanner.nextLine();
-        System.out.println("What is the temperature you want converted to?");
+        System.out.print("What is the temperature you want converted to?");
         String temperatureConverted = scanner.nextLine();
         System.out.println("Input ready");
 
@@ -31,6 +31,11 @@ public class Main {
         kelvinSet.add("Kelvin");
         kelvinSet.add("k");
         kelvinSet.add("kelvin");
+
+        if ((!celsiusSet.contains(temperature)&&!fahrenheitSet.contains(temperature)&&!kelvinSet.contains(temperature)||(!celsiusSet.contains(temperatureConverted)&&!fahrenheitSet.contains(temperatureConverted)&&!kelvinSet.contains(temperatureConverted))) ){
+            System.out.println("Invalid input");
+
+        }
 
         if (celsiusSet.contains(temperature) && fahrenheitSet.contains(temperatureConverted)){
             System.out.println("The temperature you want converted is: " + TempConvert.celsiusToFahrenheit(tempDouble));
